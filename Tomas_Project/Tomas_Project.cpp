@@ -9,6 +9,10 @@ struct Automotive {
 	int year;
 
 };
+void displayMenu();
+void addCar(Automotive inventory, int size);
+void removeCar(Automotive inventory, int size);
+void searchCar(Automotive inventory, int size);
 
 
 int main() {
@@ -25,3 +29,4 @@ int main() {
 
 	return 0;
 }
+
