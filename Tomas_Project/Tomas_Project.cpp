@@ -29,4 +29,22 @@ int main() {
 
 	return 0;
 }
+void displayMenu() {
+	cout << "Please select what you like to do: " << endl;
+	cout << "1. Add Car" << endl;
+	cout << "2. Remove Car" << endl;
+	cout << "3. Search Car" << endl;
 
+}
+
+void searchCar(Automotive inventory, int size) {
+	string make;
+	cout << "Enter car make you would like to search: " << endl;
+	cin >> make;
+
+	bool found = false;
+
+	for (int i = 0; i < size; i++) {
+
+	}
+}
