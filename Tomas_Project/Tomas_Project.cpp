@@ -40,13 +40,20 @@ void displayMenu() {
 
 void searchCar(Automotive inventory, int size) {
 	string make;
-	cout << "Enter car make you would like to search: " << endl;
+	cout << "Enter the make of the car you would like to search: " << endl;
 	cin >> make;
 
 	bool found = false;
 
 	for (int i = 0; i < size; i++) {
-
+		if ((inventory + i)->make == make) {
+			cout << (inventory + i)->model << " " << (inventory + i)
+				->year << endl;
+			found = true;
+		}
+	}
+	if (!found) {
+		cout << "No cars found." << endl;
 	}
 }
 
