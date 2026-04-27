@@ -19,6 +19,7 @@ int main() {
 	string make;
 	string model;
 	int year;
+	displayMenu();
 	cout << "Enter the make of your car: " << endl;
 	cin >> make;
 	cout << "Enter the model of your car: " << endl;
@@ -48,3 +49,4 @@ void searchCar(Automotive inventory, int size) {
 
 	}
 }
+
