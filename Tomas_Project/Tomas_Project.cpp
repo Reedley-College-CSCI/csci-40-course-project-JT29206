@@ -14,40 +14,41 @@ void displayInventory(Automotive inventory, int size);
 void addCar(Automotive inventory, int size);
 void removeCar(Automotive inventory, int size);
 void searchCar(Automotive inventory, int size);
+void resizeArr(Automotive* inventory, int capacity);
 
 
 int main() {
-	string make;
-	string model;
-	int year;
 	int choice;
+	
+	do {
+		displayMenu();
+		cin >> choice;
 
-	displayMenu();
-	cin >> choice;
+		switch (choice) {
+		case 1:
+			cout << "View Inventory Selected" << endl;
+			break;
 
-	switch (choice) {
-	case 1:
-		cout << "View Inventory Selected" << endl;
-		break;
+		case 2:
+			cout << "Add Car Selected" << endl;
+			break;
 
-	case 2: 
-		cout << "Add Car Selected" << endl;
-		break;
+		case 3:
+			cout << "Remove Car Selected" << endl;
+			break;
 
-	case 3: 
-		cout << "Remove Car Selected" << endl;
-		break;
+		case 4:
+			cout << "Search Car Selected" << endl;
 
-	case 4:
-		cout << "Search Car Selected" << endl;
+		case 5:
+			cout << "Exit" << endl;
+			break;
 
-	case 5: 
-		cout << "Exit" << endl;
-		break;
-
-	default: 
-		cout << "Invalid Choice" << endl;
+		default:
+			cout << "Invalid Choice" << endl;
+		}
 	}
+	while (choice != 5);
 
 
 	return 0;
