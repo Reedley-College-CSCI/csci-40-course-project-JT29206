@@ -10,6 +10,7 @@ struct Automotive {
 
 };
 void displayMenu();
+void displayInventory(Automotive inventory, int size);
 void addCar(Automotive inventory, int size);
 void removeCar(Automotive inventory, int size);
 void searchCar(Automotive inventory, int size);
