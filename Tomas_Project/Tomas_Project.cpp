@@ -19,7 +19,10 @@ void resizeArr(Automotive* inventory, int capacity);
 
 int main() {
 	int choice;
-	
+	int capacity = 5;
+	int size = 0;
+	Automotive* inventory = new Automotive[capacity];
+
 	do {
 		displayMenu();
 		cin >> choice;
@@ -80,5 +83,18 @@ void searchCar(Automotive inventory, int size) {
 	if (!found) {
 		cout << "No cars found." << endl;
 	}
+}
+
+void resizeArr(Automotive* inventory, int capacity) {
+	int newCapacity = capacity * 2;
+	Automotive* newArr = new Automotive[newCapacity];
+
+	for (int i = 0; i < capacity; i++) {
+		*(newArr + i) = *(inventory + i);
+	}
+
+	delete[] inventory;
+	inventory = newArr;
+	capacity = newCapacity;
 }
 
