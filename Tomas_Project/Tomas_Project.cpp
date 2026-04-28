@@ -12,7 +12,7 @@ struct Automotive {
 };
 void displayMenu();
 void displayInventory(Automotive* inventory, int size);
-void addCar(Automotive* inventory, int size, int capacity);
+void addCar(Automotive*& inventory, int& size, int& capacity);
 //void removeCar(Automotive inventory, int size);
 void searchCar(Automotive* inventory, int size);
 void resizeArr(Automotive* inventory, int capacity);
@@ -45,6 +45,8 @@ int main() {
 
 		case 4:
 			cout << "Search Car Selected" << endl;
+			searchCar(inventory, size);
+			break;
 
 		case 5:
 			cout << "Exit" << endl;
@@ -75,14 +77,14 @@ void displayInventory(Automotive* inventory, int size) {
 		return;
 	}
 	for (int i = 0; i < size; i++) {
-		cout << i << ": " << (inventory + i)->make << " "
+		cout << i + 1 << ": " << (inventory + i)->make << " "
 			<< (inventory + i)->model << " "
 			<< (inventory + i)->year 
 			<< endl;
 	}
 }
 
-void addCar(Automotive* inventory, int size, int capacity) {
+void addCar(Automotive*& inventory, int& size, int& capacity) {
 	if (size == capacity) {
 		resizeArr(inventory, capacity);
 	}
