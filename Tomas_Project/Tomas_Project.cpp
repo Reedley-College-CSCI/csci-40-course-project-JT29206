@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <iomanip>
 
 using namespace std;
 
@@ -10,10 +11,10 @@ struct Automotive {
 
 };
 void displayMenu();
-void displayInventory(Automotive inventory, int size);
-void addCar(Automotive inventory, int size);
-void removeCar(Automotive inventory, int size);
-void searchCar(Automotive inventory, int size);
+void displayInventory(Automotive* inventory, int size);
+void addCar(Automotive* inventory, int size, int capacity);
+//void removeCar(Automotive inventory, int size);
+void searchCar(Automotive* inventory, int size);
 void resizeArr(Automotive* inventory, int capacity);
 
 
@@ -34,6 +35,7 @@ int main() {
 
 		case 2:
 			cout << "Add Car Selected" << endl;
+			addCar(inventory, size, capacity);
 			break;
 
 		case 3:
@@ -66,7 +68,33 @@ void displayMenu() {
 
 }
 
-void searchCar(Automotive inventory, int size) {
+void displayInventory(Automotive* inventory, int size) {
+	if (size == 0) {
+		cout << "No cars in inventory" << endl;
+	}
+	for (int i = 0; i < size; i++) {
+		cout << (inventory + i)->make;
+	}
+}
+
+void addCar(Automotive* inventory, int size, int capacity) {
+	if (size == capacity) {
+		resizeArr(inventory, capacity);
+	}
+
+	cout << "Enter make: " ;
+	cin >> (inventory + size)->make;
+
+	cout << "Enter model: ";
+	cin >> (inventory + size)->model;
+
+	cout << "Enter year: ";
+	cin >> (inventory + size)->year;
+
+	size++;
+}
+
+void searchCar(Automotive* inventory, int size) {
 	string make;
 	cout << "Enter the make of the car you would like to search: " << endl;
 	cin >> make;
