@@ -21,8 +21,34 @@ int main() {
 	string model;
 	int year;
 	int choice;
+
 	displayMenu();
 	cin >> choice;
+
+	switch (choice) {
+	case 1:
+		cout << "View Inventory Selected" << endl;
+		break;
+
+	case 2: 
+		cout << "Add Car Selected" << endl;
+		break;
+
+	case 3: 
+		cout << "Remove Car Selected" << endl;
+		break;
+
+	case 4:
+		cout << "Search Car Selected" << endl;
+
+	case 5: 
+		cout << "Exit" << endl;
+		break;
+
+	default: 
+		cout << "Invalid Choice" << endl;
+	}
+
 	cout << "Enter the make of your car: " << endl;
 	cin >> make;
 	cout << "Enter the model of your car: " << endl;
@@ -38,7 +64,8 @@ void displayMenu() {
 	cout << "1. View Inventory" << endl;
 	cout << "2. Add Car" << endl;
 	cout << "3. Remove Car" << endl;
-	cout << "3. Search Car" << endl;
+	cout << "4. Search Car" << endl;
+	cout << "5. Exit" << endl;
 
 }
 
