@@ -31,6 +31,7 @@ int main() {
 		switch (choice) {
 		case 1:
 			cout << "View Inventory Selected" << endl;
+			displayInventory(inventory, size);
 			break;
 
 		case 2:
@@ -71,9 +72,13 @@ void displayMenu() {
 void displayInventory(Automotive* inventory, int size) {
 	if (size == 0) {
 		cout << "No cars in inventory" << endl;
+		return;
 	}
 	for (int i = 0; i < size; i++) {
-		cout << (inventory + i)->make;
+		cout << i << ": " << (inventory + i)->make << " "
+			<< (inventory + i)->model << " "
+			<< (inventory + i)->year 
+			<< endl;
 	}
 }
 
