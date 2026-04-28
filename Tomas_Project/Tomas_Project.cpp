@@ -13,7 +13,7 @@ struct Automotive {
 void displayMenu();
 void displayInventory(Automotive* inventory, int size);
 void addCar(Automotive*& inventory, int& size, int& capacity);
-//void removeCar(Automotive inventory, int size);
+void removeCar(Automotive inventory, int size);
 void searchCar(Automotive* inventory, int size);
 void resizeArr(Automotive* inventory, int capacity);
 
@@ -30,12 +30,12 @@ int main() {
 
 		switch (choice) {
 		case 1:
-			cout << "View Inventory Selected" << endl;
+			cout << "\nView Inventory Selected" << endl;
 			displayInventory(inventory, size);
 			break;
 
 		case 2:
-			cout << "Add Car Selected" << endl;
+			cout << "\nAdd Car Selected" << endl;
 			addCar(inventory, size, capacity);
 			break;
 
@@ -44,7 +44,7 @@ int main() {
 			break;
 
 		case 4:
-			cout << "Search Car Selected" << endl;
+			cout << "\nSearch Car Selected" << endl;
 			searchCar(inventory, size);
 			break;
 
@@ -97,8 +97,25 @@ void addCar(Automotive*& inventory, int& size, int& capacity) {
 
 	cout << "Enter year: ";
 	cin >> (inventory + size)->year;
-
+	cout << endl;
 	size++;
+}
+
+void removeCar(Automotive inventory, int size) {
+	int num;
+
+	cout << "Enter which car you would like to remove: " << endl;
+	cin >> num;
+
+	if (num < 0 || num >= size) {
+		cout << "Invalid number" << endl;
+	}
+
+	for (int i = num; i < size; i++) {
+		*(inventory + i) = *(inventory + i + 1);
+	}
+
+	size--;
 }
 
 void searchCar(Automotive* inventory, int size) {
@@ -111,12 +128,12 @@ void searchCar(Automotive* inventory, int size) {
 	for (int i = 0; i < size; i++) {
 		if ((inventory + i)->make == make) {
 			cout << (inventory + i)->model << " " << (inventory + i)
-				->year << endl;
+				->year << endl << endl;
 			found = true;
 		}
 	}
 	if (!found) {
-		cout << "No cars found." << endl;
+		cout << "No cars found." << endl << endl;
 	}
 }
 
