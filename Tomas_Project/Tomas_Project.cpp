@@ -49,13 +49,6 @@ int main() {
 		cout << "Invalid Choice" << endl;
 	}
 
-	cout << "Enter the make of your car: " << endl;
-	cin >> make;
-	cout << "Enter the model of your car: " << endl;
-	cin >> model;
-	cout << "Enter the year of your car: " << endl;
-	cin >> year;
-	cout << "You have inputted a " << make << " " << model << " " << year << endl;
 
 	return 0;
 }
