@@ -19,7 +19,9 @@ int main() {
 	string make;
 	string model;
 	int year;
+	int choice;
 	displayMenu();
+	cin >> choice;
 	cout << "Enter the make of your car: " << endl;
 	cin >> make;
 	cout << "Enter the model of your car: " << endl;
@@ -32,8 +34,9 @@ int main() {
 }
 void displayMenu() {
 	cout << "Please select what you like to do: " << endl;
-	cout << "1. Add Car" << endl;
-	cout << "2. Remove Car" << endl;
+	cout << "1. View Inventory" << endl;
+	cout << "2. Add Car" << endl;
+	cout << "3. Remove Car" << endl;
 	cout << "3. Search Car" << endl;
 
 }
