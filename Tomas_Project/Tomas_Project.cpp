@@ -13,7 +13,7 @@ struct Automotive {
 void displayMenu();
 void displayInventory(Automotive* inventory, int size);
 void addCar(Automotive*& inventory, int& size, int& capacity);
-void removeCar(Automotive inventory, int size);
+void removeCar(Automotive* inventory, int& size);
 void searchCar(Automotive* inventory, int size);
 void resizeArr(Automotive* inventory, int capacity);
 
@@ -41,6 +41,7 @@ int main() {
 
 		case 3:
 			cout << "Remove Car Selected" << endl;
+			removeCar(inventory, size);
 			break;
 
 		case 4:
@@ -101,21 +102,27 @@ void addCar(Automotive*& inventory, int& size, int& capacity) {
 	size++;
 }
 
-void removeCar(Automotive inventory, int size) {
+void removeCar(Automotive* inventory, int& size) {
 	int num;
 
-	cout << "Enter which car you would like to remove: " << endl;
+
+	cout << "Enter which car you would like to remove (1-" 
+		<< size << " ): " << endl;
 	cin >> num;
+	num--;
 
 	if (num < 0 || num >= size) {
 		cout << "Invalid number" << endl;
+		return;
 	}
 
-	for (int i = num; i < size; i++) {
+	for (int i = num; i < size -1; i++) {
 		*(inventory + i) = *(inventory + i + 1);
 	}
 
 	size--;
+
+	cout << "Car removed" << endl;
 }
 
 void searchCar(Automotive* inventory, int size) {
