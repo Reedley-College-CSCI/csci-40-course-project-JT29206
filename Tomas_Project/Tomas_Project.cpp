@@ -9,6 +9,7 @@ struct Automotive {
 	string model;
 	int year;
 	double price;
+	bool available;
 
 };
 void displayMenu();
@@ -17,6 +18,7 @@ void addCar(Automotive*& inventory, int& size, int& capacity);
 void removeCar(Automotive* inventory, int& size);
 void searchCar(Automotive* inventory, int size);
 void resizeArr(Automotive*& inventory, int& capacity);
+void sortByPrice(Automotive inventory, int size);
 
 
 int main() {
