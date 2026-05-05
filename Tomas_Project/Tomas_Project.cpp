@@ -15,7 +15,7 @@ void displayInventory(Automotive* inventory, int size);
 void addCar(Automotive*& inventory, int& size, int& capacity);
 void removeCar(Automotive* inventory, int& size);
 void searchCar(Automotive* inventory, int size);
-void resizeArr(Automotive* inventory, int capacity);
+void resizeArr(Automotive*& inventory, int& capacity);
 
 
 int main() {
@@ -59,11 +59,11 @@ int main() {
 	}
 	while (choice != 5);
 
-
+	delete[] inventory;
 	return 0;
 }
 void displayMenu() {
-	cout << "Please select what you like to do: " << endl;
+	cout << "Please select what you like to do (1-5): " << endl;
 	cout << "1. View Inventory" << endl;
 	cout << "2. Add Car" << endl;
 	cout << "3. Remove Car" << endl;
@@ -78,11 +78,12 @@ void displayInventory(Automotive* inventory, int size) {
 		return;
 	}
 	for (int i = 0; i < size; i++) {
-		cout << i + 1 << ": " << (inventory + i)->make << " "
-			<< (inventory + i)->model << " "
-			<< (inventory + i)->year 
+		cout << i + 1 << ": " << inventory[i].make << " "
+			<< inventory[i].model << " "
+			<< inventory[i].year 
 			<< endl;
 	}
+	cout << endl;
 }
 
 void addCar(Automotive*& inventory, int& size, int& capacity) {
@@ -91,13 +92,13 @@ void addCar(Automotive*& inventory, int& size, int& capacity) {
 	}
 
 	cout << "Enter make: " ;
-	cin >> (inventory + size)->make;
+	cin >> inventory[size].make;
 
 	cout << "Enter model: ";
-	cin >> (inventory + size)->model;
+	cin >> inventory[size].model;
 
 	cout << "Enter year: ";
-	cin >> (inventory + size)->year;
+	cin >> inventory[size].year;
 	cout << endl;
 	size++;
 }
@@ -105,11 +106,15 @@ void addCar(Automotive*& inventory, int& size, int& capacity) {
 void removeCar(Automotive* inventory, int& size) {
 	int num;
 
-
 	cout << "Enter which car you would like to remove (1-" 
 		<< size << " ): " << endl;
 	cin >> num;
 	num--;
+
+	if (size == 0) {
+		cout << "Inventory is empty" << endl;
+		return;
+	}
 
 	if (num < 0 || num >= size) {
 		cout << "Invalid number" << endl;
@@ -117,7 +122,7 @@ void removeCar(Automotive* inventory, int& size) {
 	}
 
 	for (int i = num; i < size -1; i++) {
-		*(inventory + i) = *(inventory + i + 1);
+		inventory[i] = inventory[i + 1];
 	}
 
 	size--;
@@ -133,9 +138,8 @@ void searchCar(Automotive* inventory, int size) {
 	bool found = false;
 
 	for (int i = 0; i < size; i++) {
-		if ((inventory + i)->make == make) {
-			cout << (inventory + i)->model << " " << (inventory + i)
-				->year << endl << endl;
+		if (inventory[i].make == make) {
+			cout << inventory[i].model << " " << inventory[i].year << endl << endl;
 			found = true;
 		}
 	}
@@ -144,12 +148,12 @@ void searchCar(Automotive* inventory, int size) {
 	}
 }
 
-void resizeArr(Automotive* inventory, int capacity) {
+void resizeArr(Automotive*& inventory, int& capacity) {
 	int newCapacity = capacity * 2;
 	Automotive* newArr = new Automotive[newCapacity];
 
 	for (int i = 0; i < capacity; i++) {
-		*(newArr + i) = *(inventory + i);
+		newArr[i] = inventory[i];
 	}
 
 	delete[] inventory;
