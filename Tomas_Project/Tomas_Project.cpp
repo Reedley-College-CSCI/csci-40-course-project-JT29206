@@ -8,6 +8,7 @@ struct Automotive {
 	string make;
 	string model;
 	int year;
+	double price;
 
 };
 void displayMenu();
