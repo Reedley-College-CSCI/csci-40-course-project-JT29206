@@ -151,6 +151,17 @@ void searchCar(Automotive* inventory, int size) {
 	}
 }
 
+void sortByPrice(Automotive inventory, int size) {
+	for (int i = 0; i < size; i++) {
+		int minIndex = i;
+		for (int j = i + 1; j < size; j++) {
+			if (inventory[j].price < inventory[minIndex].price) {
+				minIndex = j;
+			}
+		}
+	}
+}
+
 void resizeArr(Automotive*& inventory, int& capacity) {
 	int newCapacity = capacity * 2;
 	Automotive* newArr = new Automotive[newCapacity];
