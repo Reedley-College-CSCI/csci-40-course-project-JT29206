@@ -90,7 +90,9 @@ void displayInventory(Automotive* inventory, int size) {
 	for (int i = 0; i < size; i++) {
 		cout << i + 1 << ": " << inventory[i].make << " "
 			<< inventory[i].model << " "
-			<< inventory[i].year 
+			<< inventory[i].year << " $"
+			<< inventory[i].price << " "
+			<< (inventory[i].available ? "Available" : "Sold")
 			<< endl;
 	}
 	cout << endl;
