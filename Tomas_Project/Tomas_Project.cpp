@@ -18,7 +18,7 @@ void addCar(Automotive*& inventory, int& size, int& capacity);
 void removeCar(Automotive* inventory, int& size);
 void searchCar(Automotive* inventory, int size);
 void resizeArr(Automotive*& inventory, int& capacity);
-void sortByPrice(Automotive inventory, int size);
+void sortByPrice(Automotive* inventory, int size);
 
 
 int main() {
@@ -159,8 +159,8 @@ void sortByPrice(Automotive* inventory, int size) {
 				minIndex = j;
 			}
 		}
-		int temp = inventory[j];
-		inventory[j] = inventory[minIndex];
+		Automotive temp = inventory[i];
+		inventory[i] = inventory[minIndex];
 		inventory[minIndex] = temp;
 	}
 }
