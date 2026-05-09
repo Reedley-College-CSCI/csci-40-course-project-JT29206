@@ -151,7 +151,7 @@ void searchCar(Automotive* inventory, int size) {
 	}
 }
 
-void sortByPrice(Automotive inventory, int size) {
+void sortByPrice(Automotive* inventory, int size) {
 	for (int i = 0; i < size; i++) {
 		int minIndex = i;
 		for (int j = i + 1; j < size; j++) {
@@ -159,6 +159,9 @@ void sortByPrice(Automotive inventory, int size) {
 				minIndex = j;
 			}
 		}
+		int temp = inventory[j];
+		inventory[j] = inventory[minIndex];
+		inventory[minIndex] = temp;
 	}
 }
 
