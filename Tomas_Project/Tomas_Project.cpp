@@ -55,6 +55,7 @@ int main() {
 		case 5: 
 			cout << "\nSort by Price Selected" << endl;
 			sortByPrice(inventory, size);
+			displayInventory(inventory, size);
 			break;
 
 		case 6:
@@ -161,7 +162,7 @@ void searchCar(Automotive* inventory, int size) {
 }
 
 void sortByPrice(Automotive* inventory, int size) {
-	for (int i = 0; i < size; i++) {
+	for (int i = 0; i < size - 1; i++) {
 		int minIndex = i;
 		for (int j = i + 1; j < size; j++) {
 			if (inventory[j].price < inventory[minIndex].price) {
