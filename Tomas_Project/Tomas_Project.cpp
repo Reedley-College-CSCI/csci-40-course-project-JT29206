@@ -64,13 +64,13 @@ int main() {
 			cout << "Invalid Choice" << endl;
 		}
 	}
-	while (choice != 5);
+	while (choice != 6);
 
 	delete[] inventory;
 	return 0;
 }
 void displayMenu() {
-	cout << "Please select what you like to do (1-5): " << endl;
+	cout << "Please select what you like to do (1-6): " << endl;
 	cout << "1. View Inventory" << endl;
 	cout << "2. Add Car" << endl;
 	cout << "3. Remove Car" << endl;
@@ -107,6 +107,9 @@ void addCar(Automotive*& inventory, int& size, int& capacity) {
 
 	cout << "Enter year: ";
 	cin >> inventory[size].year;
+
+	cout << "Enter price: ";
+	cin >> inventory[size].price;
 	cout << endl;
 	size++;
 }
