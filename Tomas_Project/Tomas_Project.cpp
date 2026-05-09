@@ -51,8 +51,12 @@ int main() {
 			cout << "\nSearch Car Selected" << endl;
 			searchCar(inventory, size);
 			break;
+		
+		case 5: 
+			cout << "\nSort by Price Selected" << endl;
+			sortByPrice(inventory, size);
 
-		case 5:
+		case 6:
 			cout << "Exit" << endl;
 			break;
 
@@ -71,7 +75,8 @@ void displayMenu() {
 	cout << "2. Add Car" << endl;
 	cout << "3. Remove Car" << endl;
 	cout << "4. Search Car" << endl;
-	cout << "5. Exit" << endl;
+	cout << "5. Sort by Price" << endl;
+	cout << "6. Exit" << endl;
 
 }
 
@@ -163,6 +168,7 @@ void sortByPrice(Automotive* inventory, int size) {
 		inventory[i] = inventory[minIndex];
 		inventory[minIndex] = temp;
 	}
+	cout << "Inventory sorted by price" << endl;
 }
 
 void resizeArr(Automotive*& inventory, int& capacity) {
