@@ -114,6 +114,9 @@ void addCar(Automotive*& inventory, int& size, int& capacity) {
 
 	cout << "Enter price: ";
 	cin >> inventory[size].price;
+
+	cout << "Is it available? (1 = Yes, 0 = No): ";
+	cin >> inventory[size].available;
 	cout << endl;
 	size++;
 }
