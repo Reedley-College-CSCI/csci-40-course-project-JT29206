@@ -55,6 +55,7 @@ int main() {
 		case 5: 
 			cout << "\nSort by Price Selected" << endl;
 			sortByPrice(inventory, size);
+			break;
 
 		case 6:
 			cout << "Exit" << endl;
