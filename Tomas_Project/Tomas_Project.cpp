@@ -61,6 +61,7 @@ int main() {
 			break;
 
 		case 6:
+			saveToFile(inventory, size);
 			cout << "Exit" << endl;
 			break;
 
