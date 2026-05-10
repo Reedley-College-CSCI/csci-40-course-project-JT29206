@@ -196,3 +196,16 @@ void resizeArr(Automotive*& inventory, int& capacity) {
 	capacity = newCapacity;
 }
 
+void saveToFile(Automotive* inventory, int size) {
+	ofstream file("inventory.txt");
+
+	for (int i = 0; i < size; i++) {
+		file << inventory[i].make << endl;
+		file << inventory[i].model << endl;
+		file << inventory[i].year << endl;
+		file << inventory[i].price << endl;
+		file << inventory[i].available << endl;
+	}
+	file.close();
+}
+
