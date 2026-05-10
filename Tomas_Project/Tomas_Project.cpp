@@ -20,6 +20,7 @@ void removeCar(Automotive* inventory, int& size);
 void searchCar(Automotive* inventory, int size);
 void resizeArr(Automotive*& inventory, int& capacity);
 void sortByPrice(Automotive* inventory, int size);
+void saveToFile(Automotive* inventory, int size);
 
 
 int main() {
