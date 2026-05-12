@@ -28,6 +28,7 @@ int main() {
 	int capacity = 5;
 	int size = 0;
 	Automotive* inventory = new Automotive[capacity];
+	loadFromFile(inventory, size, capacity);
 
 	do {
 		displayMenu();
@@ -201,11 +202,11 @@ void saveToFile(Automotive* inventory, int size) {
 	ofstream file("inventory.txt");
 
 	for (int i = 0; i < size; i++) {
-		file << inventory[i].make << endl;
-		file << inventory[i].model << endl;
-		file << inventory[i].year << endl;
-		file << inventory[i].price << endl;
-		file << inventory[i].available << endl;
+		file << inventory[i].make << " "
+		<< inventory[i].model << " "
+		<< inventory[i].year << " "
+		<< inventory[i].price << " "
+		<< inventory[i].available << endl;
 	}
 	file.close();
 }
