@@ -21,8 +21,7 @@ void searchCar(Automotive* inventory, int size);
 void resizeArr(Automotive*& inventory, int& capacity);
 void sortByPrice(Automotive* inventory, int size);
 void saveToFile(Automotive* inventory, int size);
-void loadFromFile(Automotive* inventory, int size);
-
+void loadFromFile(Automotive*& inventory, int& size, int& capacity);
 
 int main() {
 	int choice;
@@ -207,6 +206,24 @@ void saveToFile(Automotive* inventory, int size) {
 		file << inventory[i].year << endl;
 		file << inventory[i].price << endl;
 		file << inventory[i].available << endl;
+	}
+	file.close();
+}
+
+void loadFromFile(Automotive*& inventory, int& size, int& capacity) {
+	ifstream file("inventory.txt");
+
+	if (!file) {
+		cout << "Error: Cannot open file!" << endl;
+	}
+
+	while (file >> inventory[size].make >> inventory[size].model
+		>> inventory[size].year >> inventory[size].price >> inventory[size].available) {
+		size++;
+
+		if (size == capacity) { // If array is too full, then resizes array
+			resizeArr(inventory, capacity);
+		}
 	}
 	file.close();
 }
