@@ -128,6 +128,11 @@ void addCar(Automotive*& inventory, int& size, int& capacity) {
 void removeCar(Automotive* inventory, int& size) {
 	int num;
 
+	if (size == 0) {
+		cout << "No cars in inventory" << endl;
+		return;
+	}
+
 	cout << "Enter which car you would like to remove (1-" 
 		<< size << " ): " << endl;
 	cin >> num;
