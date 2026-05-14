@@ -125,7 +125,7 @@ void addCar(Automotive*& inventory, int& size, int& capacity) {
 
 	cout << "Enter year: ";
 	
-	while (!(cin >> inventory[size].year)) {
+	while (!(cin >> inventory[size].year) || inventory[size].year < 1885 || inventory[size].year > 2026) {
 		cin.clear();
 		cin.ignore(1000, '\n');
 		cout << "Invalid year. Try again" << endl;
