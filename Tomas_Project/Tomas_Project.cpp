@@ -134,7 +134,7 @@ void addCar(Automotive*& inventory, int& size, int& capacity) {
 
 	cout << "Enter price: ";
 	
-	while (!(cin >> inventory[size].price)) {
+	while (!(cin >> inventory[size].price) || inventory[size].price < 0) {
 		cin.clear();
 		cin.ignore(1000, '\n');
 		cout << "Invalid price. Try again" << endl;
