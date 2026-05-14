@@ -124,6 +124,7 @@ void addCar(Automotive*& inventory, int& size, int& capacity) {
 	cin >> inventory[size].model;
 
 	cout << "Enter year: ";
+	
 	while (!(cin >> inventory[size].year)) {
 		cin.clear();
 		cin.ignore(1000, '\n');
@@ -132,7 +133,12 @@ void addCar(Automotive*& inventory, int& size, int& capacity) {
 
 
 	cout << "Enter price: ";
-	cin >> inventory[size].price;
+	
+	while (!(cin >> inventory[size].price)) {
+		cin.clear();
+		cin.ignore(1000, '\n');
+		cout << "Invalid price. Try again" << endl;
+	}
 
 	cout << "Is it available? (1 = Yes, 0 = No): ";
 	cin >> inventory[size].available;
