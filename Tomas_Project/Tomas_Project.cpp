@@ -42,34 +42,34 @@ int main() {
 
 		switch (choice) {
 		case 1:
-			cout << "\nView Inventory Selected" << endl;
+			cout << "\n------View Inventory Selected------" << endl;
 			displayInventory(inventory, size);
 			break;
 
 		case 2:
-			cout << "\nAdd Car Selected" << endl;
+			cout << "\n------Add Car Selected------" << endl;
 			addCar(inventory, size, capacity);
 			break;
 
 		case 3:
-			cout << "Remove Car Selected" << endl;
+			cout << "------Remove Car Selected------" << endl;
 			removeCar(inventory, size);
 			break;
 
 		case 4:
-			cout << "\nSearch Car Selected" << endl;
+			cout << "\n------Search Car Selected------" << endl;
 			searchCar(inventory, size);
 			break;
 		
 		case 5: 
-			cout << "\nSort by Price Selected" << endl;
+			cout << "\n------Sort by Price Selected------" << endl;
 			sortByPrice(inventory, size);
 			displayInventory(inventory, size);
 			break;
 
 		case 6:
 			saveToFile(inventory, size);
-			cout << "Exit" << endl;
+			cout << "Saving to file and exiting" << endl;
 			break;
 
 		default:
