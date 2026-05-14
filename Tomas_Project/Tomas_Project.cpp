@@ -141,7 +141,12 @@ void addCar(Automotive*& inventory, int& size, int& capacity) {
 	}
 
 	cout << "Is it available? (1 = Yes, 0 = No): ";
-	cin >> inventory[size].available;
+
+	while (!(cin >> inventory[size].available)) {
+		cin.clear();
+		cin.ignore(1000, '\n');
+		cout << "Invalid input. Please enter 1 or 0" << endl;
+	}
 	
 	size++;
 
