@@ -82,13 +82,14 @@ int main() {
 	return 0;
 }
 void displayMenu() {
-	cout << "Please select what you like to do (1-6): " << endl;
+	cout << "------Car Dealership Management System------" << endl;
 	cout << "1. View Inventory" << endl;
 	cout << "2. Add Car" << endl;
 	cout << "3. Remove Car" << endl;
 	cout << "4. Search Car" << endl;
 	cout << "5. Sort by Price" << endl;
 	cout << "6. Exit" << endl;
+	cout << "Please select what you like to do (1-6):" << endl;
 
 }
 
@@ -98,10 +99,11 @@ void displayInventory(Automotive* inventory, int size) {
 		return;
 	}
 	for (int i = 0; i < size; i++) {
-		cout << i + 1 << ": " << inventory[i].make << " "
-			<< inventory[i].model << " "
-			<< inventory[i].year << " $"
-			<< inventory[i].price << " "
+		cout << i + 1 << ": " 
+			<< inventory[i].make << " "
+			<< inventory[i].model << " | Year: "
+			<< inventory[i].year << " | Price: $"
+			<< inventory[i].price << " | "
 			<< (inventory[i].available ? "Available" : "Sold")
 			<< endl;
 	}
@@ -127,8 +129,10 @@ void addCar(Automotive*& inventory, int& size, int& capacity) {
 
 	cout << "Is it available? (1 = Yes, 0 = No): ";
 	cin >> inventory[size].available;
-	cout << endl;
+	
 	size++;
+
+	cout << "Car added successfully" << endl << endl;
 }
 
 void removeCar(Automotive* inventory, int& size) {
@@ -160,7 +164,7 @@ void removeCar(Automotive* inventory, int& size) {
 
 	size--;
 
-	cout << "Car removed" << endl;
+	cout << "Car removed successfully" << endl << endl;
 }
 
 void searchCar(Automotive* inventory, int size) {
