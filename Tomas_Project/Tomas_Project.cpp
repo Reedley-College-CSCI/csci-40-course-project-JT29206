@@ -148,11 +148,6 @@ void removeCar(Automotive* inventory, int& size) {
 	cin >> num;
 	num--;
 
-	if (size == 0) {
-		cout << "Inventory is empty" << endl;
-		return;
-	}
-
 	if (num < 0 || num >= size) {
 		cout << "Invalid number" << endl;
 		return;
@@ -230,7 +225,8 @@ void loadFromFile(Automotive*& inventory, int& size, int& capacity) {
 	ifstream file("inventory.txt");
 
 	if (!file) {
-		cout << "Error: Cannot open file!" << endl;
+		cout << "No saved inventory found" << endl;
+		return;
 	}
 
 	while (file >> inventory[size].make >> inventory[size].model
@@ -242,5 +238,7 @@ void loadFromFile(Automotive*& inventory, int& size, int& capacity) {
 		}
 	}
 	file.close();
+
+	cout << "Inventory loaded successfully" << endl;
 }
 
