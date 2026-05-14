@@ -98,6 +98,8 @@ void displayInventory(Automotive* inventory, int size) {
 		cout << "No cars in inventory" << endl;
 		return;
 	}
+	cout << fixed << setprecision(2);
+
 	for (int i = 0; i < size; i++) {
 		cout << i + 1 << ": " 
 			<< inventory[i].make << " "
