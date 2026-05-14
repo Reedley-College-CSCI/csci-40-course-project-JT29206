@@ -236,11 +236,15 @@ void loadFromFile(Automotive*& inventory, int& size, int& capacity) {
 		return;
 	}
 
-	while (file >> inventory[size].make >> inventory[size].model
-		>> inventory[size].year >> inventory[size].price >> inventory[size].available) {
+	while (file >> inventory[size].make 
+		>> inventory[size].model
+		>> inventory[size].year 
+		>> inventory[size].price 
+		>> inventory[size].available) {
+		
 		size++;
 
-		if (size == capacity) { // If array is too full, then resizes array
+		if (size >= capacity) { // If array is too full, then resizes array
 			resizeArr(inventory, capacity);
 		}
 	}
