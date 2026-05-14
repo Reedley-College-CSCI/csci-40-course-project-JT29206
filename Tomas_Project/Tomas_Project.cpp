@@ -173,7 +173,11 @@ void searchCar(Automotive* inventory, int size) {
 
 	for (int i = 0; i < size; i++) {
 		if (inventory[i].make == make) {
-			cout << inventory[i].model << " " << inventory[i].year << endl << endl;
+			cout << inventory[i].model << " | Year: "
+				<< inventory[i].year << " | Price: $ "
+				<< inventory[i].price << " | "
+				<< (inventory[i].available ? "Available" : "Sold")
+				<< endl << endl;
 			found = true;
 		}
 	}
