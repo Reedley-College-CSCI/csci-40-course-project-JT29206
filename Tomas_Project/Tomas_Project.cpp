@@ -132,7 +132,7 @@ void addCar(Automotive*& inventory, int& size, int& capacity) {
 	}
 
 
-	cout << "Enter price: ";
+	cout << "Enter price(Enter price without comma): ";
 	
 	while (!(cin >> inventory[size].price) || inventory[size].price < 0) {
 		cin.clear();
